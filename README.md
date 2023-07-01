@@ -2,7 +2,7 @@
 
 
 ## サイト概要
-世界中様々な”お茶”の感想を投稿するSNSです。
+世界中様々な”お茶”を検索したり感想を投稿したりするSNSサイト
 
 ## サイトテーマ
 何百種類もあるお茶について、まだ知らないお茶を誰かの投稿をきっかけに知ることができ、
@@ -58,3 +58,4 @@
    - https://docs.google.com/spreadsheets/d/1EcjlruEp_ZlwFMFoQHNnHh0YBSHuk0pm2MgQQnE3bpk/edit?usp=sharing
 
 ## 使用素材(未定)
+* お茶のフリー画像素材使用予定
