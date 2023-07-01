@@ -1,7 +1,4 @@
-#README
-
-# サイト名
-Tea room
+# Tea room
 
 
 ## サイト概要
