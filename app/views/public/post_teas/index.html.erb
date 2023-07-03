@@ -1,2 +1,32 @@
-<h1>Public::PostTeas#index</h1>
-<p>Find me in app/views/public/post_teas/index.html.erb</p>
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-lg-3 offset-lg-1">
+      <h4 class="text-nowrap">Time Line</h4>
+    </div>
+  </div>
+
+<div class="card-list-container py-5">
+  <% @post_teas.each do |post_tea| %>
+  <div class="card w-50 mx-auto mt-4 shadow-lg">
+    <%= link_to post_tea_path(post_tea.id) do %>
+      <%= image_tag post_tea.get_image, class:"card-img-top"; %>
+    <% end %>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-10">
+          <p class="card-title">
+            <%= link_to(post_tea_path(post_tea.id), class:"text-dark") do %>
+              <strong><i class="far fa-flag"></i><span> <%= post_tea.title %></span></strong>
+            <% end %>
+          </p>
+          <p class="card-text">説明：<%= post_tea.body %></p>
+          <span><i class="fas fa-user"></i> By <%= post_tea.customer.name %> ｜ </span>
+          <span><%= link_to "#{post_tea.comments.count} コメント", post_tea_path(post_tea.id), class:"text-dark" %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+</div>

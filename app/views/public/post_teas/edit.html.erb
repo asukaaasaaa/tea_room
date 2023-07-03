@@ -1,2 +1,47 @@
-<h1>Public::PostTeas#edit</h1>
-<p>Find me in app/views/public/post_teas/edit.html.erb</p>
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <% if @post_tea.errors.any? %>
+        <%= @post_tea.errors.count %>件のエラーが発生しました
+        <ul>
+          <% @post_tea.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+        <% end %>
+      <h2>Editing post</h2>
+          <%= form_with model:@post_tea do |f| %>
+          <table class="table">
+            <tr>
+              <div class="form-group">
+                <td><%= f.label :商品画像 %></td>
+                <td><%= f.file_field :image, accept: "image/*" %></td>
+              </div>
+            </tr>
+            <tr>
+              <td><%= f.label :title %></td>
+              <td><%= f.text_field :title, class: 'form-control post_tea_title' %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :body %></td>
+              <td><%= f.text_area :body, class: 'form-control post_tea_body' %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :genre_id %></td>
+              <td><%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "--お茶の種類--" %></td>
+            </tr>
+          </table>
+          <div class="row">
+            <div class="col-5 mx-auto">
+              <%= f.submit class: 'btn btn-info' %>
+            </div>
+          </div>
+          <% end %>
+
+          <hr>
+          <%= link_to "Back",post_tea_path(@post_tea.id), class: 'text-dark' %>
+           |
+          <%= link_to "Time Line",post_teas_path, class: 'text-dark' %>
+     </div>
+  </div>
+</div>

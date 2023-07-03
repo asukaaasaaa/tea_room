@@ -8,13 +8,7 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get '/about', to: 'homes#about'
 
-    get 'customers/mypage' => 'customers#show', as: 'mypage'
-    # customers/editはdeviseのルーティングとかぶってしまうため
-    get 'customers/information/edit' => 'customers#edit', as: 'edit_information'
-    patch 'customers/information' => 'customers#update', as: 'update_information'
-    get 'customers/unsubscribe' => 'customers#unsubscribe', as: 'confirm_unsubscribe'
-    put 'customers/information' => 'customers#update'
-    patch 'customers/withdraw' => 'customers#withdraw', as: 'withdraw_customer'
+    resources :customers, only: [:index, :show, :edit, :update, :unsubscribe, :withdraw]
 
     resources :public do
       resource :relationships, only: [:create, :destroy]

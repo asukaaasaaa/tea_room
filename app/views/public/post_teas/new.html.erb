@@ -1,2 +1,41 @@
-<h1>Public::PostTeas#new</h1>
-<p>Find me in app/views/public/post_teas/new.html.erb</p>
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>New Tea</h2>
+      <% if @post_tea.errors.any? %>
+        <%= @post_tea.errors.count %>件のエラーが発生しました
+        <ul>
+          <% @post_tea.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+
+      <%= form_with model: @post_tea do |f| %>
+      <table class="table">
+        <tr>
+          <td><%= f.label :image %></td>
+          <td><%= f.file_field :image, accept: "image/*" %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :title %></td>
+          <td><%= f.text_field :title %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :body %></td>
+          <td><%= f.text_area :body %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :genre_id %></td>
+          <td><%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "--お茶の種類--" %></td>
+        </tr>
+      </table>
+      <div class="row">
+        <div class="col-5 mx-auto">
+        <%= f.submit 'New Post Tea', class: "btn btn-info text-nowrap" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
