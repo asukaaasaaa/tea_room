@@ -10,12 +10,12 @@ Rails.application.routes.draw do
 
     resources :customers, only: [:index, :show, :edit, :update, :unsubscribe, :withdraw]
 
-    resources :public do
+    resources :customers do
       resource :relationships, only: [:create, :destroy]
       get 'followings' => 'relationships#followings', as: 'followings'
       get 'followers' => 'relationships#followers', as: 'followers'
       member do
-        get 'likes' => 'customers#likes'
+        get 'likes' => 'customers#likes', as: 'likes'
       end
     end
 

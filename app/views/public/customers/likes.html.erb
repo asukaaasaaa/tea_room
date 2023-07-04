@@ -1,2 +1,13 @@
-<h1>Public::Customers#likes</h1>
-<p>Find me in app/views/public/customers/likes.html.erb</p>
+<div class='container'>
+  <div class='row'>
+    <div class="col-12">
+      <div>
+        <h3><%= @customer.name %> さんの Likes</h3>
+      </div>
+    </div>
+    <div class="col-12">
+    <%= render 'public/customers/nav', customer: @customer %>
+    </div>
+
+  </div>
+</div>

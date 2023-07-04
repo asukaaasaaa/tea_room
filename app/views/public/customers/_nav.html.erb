@@ -1,0 +1,20 @@
+<hr>
+<ul class="nav nav-tabs justify-content-center">
+  <li class="nav-item">
+    <%= link_to customer_path(params[:id]), class: "nav-link" do %>
+      <i class="far fa-id-card"></i> Profile
+    <% end %>
+  </li>
+  <li class="nav-item">
+    <%= link_to likes_customer_path(params[:id]), class: "nav-link" do %>
+      <i class="fas fa-heart"></i> Likes
+    <% end %>
+  </li>
+  <% if customer == current_customer %>
+  <li class="nav-item">
+    <%= link_to edit_customer_path(params[:id]), class: "nav-link" do %>
+      <i class="fas fa-user-edit"></i> Edit
+    <% end %>
+  </li>
+  <% end %>
+</ul>

@@ -1,3 +1,33 @@
 <p><%= flash[:notice] %></p>
-<h1>Public::Customers#show</h1>
-<p>Find me in app/views/public/customers/show.html.erb</p>
+<div class='container'>
+  <div class='row'>
+    <div class="col-12">
+      <div>
+        <h3><%= @customer.name %> さんのページ</h3>
+        <p>Introduction : <%= @customer.introduction %></p>
+      </div>
+    </div>
+    <div class="col-12">
+    <%= render 'public/customers/nav' , customer: @customer %>
+    </div>
+
+
+    <% @post_teas.each do |post_tea| %>
+      <div class="col-md-3 mt-2">
+        <div class="card-deck">
+        <div class="card border-info" style="width: 15rem;">
+          <%= link_to post_tea_path(post_tea.id) do %>
+            <%= image_tag post_tea.get_image, class: "card-img-top" %>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title">Title：<%= post_tea.title %></h5>
+            <p class="card-text">Opinion：<%= post_tea.body %></p>
+            <p class="card-text">Genre : <%= post_tea.genre.name %></p>
+          </div>
+        </div>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+</div>

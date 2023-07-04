@@ -6,12 +6,13 @@
     <div class="card-body">
       <div class="row">
         <div class="col-10">
-          <p class="card-title">
+          <h4 class="card-title">
             <%= link_to(post_tea_path(@post_tea.id), class:"text-dark") do %>
               <strong><i class="far fa-flag"></i><span> <%= @post_tea.title %></span></strong>
             <% end %>
-          </p>
-          <p class="card-title">説明：<%= @post_tea.body %></p>
+          </h4>
+          <p class="card-title">Opinion：<%= @post_tea.body %></p>
+          <p class="card-text">Genre : <%= @post_tea.genre.name %></p>
           <hr>
           <span>
             <%= link_to customer_path(@post_tea.customer_id) do %>
