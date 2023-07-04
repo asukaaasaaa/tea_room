@@ -1,13 +1,35 @@
 <div class='container'>
-  <div class='row'>
+  <div class='row no-gutters'>
     <div class="col-12">
       <div>
-        <h3><%= @customer.name %> さんの Edit</h3>
+        <h3 class="py-4 mb-0"><%= @customer.name %> さんの Edit</h3>
       </div>
     </div>
     <div class="col-12">
     <%= render 'public/customers/nav', customer: @customer %>
     </div>
+
+      <div class="mx-auto">
+        <%= form_with model: @customer, local: true do |f| %>
+         <table class="table">
+        <tr>
+          <td><%= f.label :name %></td>
+          <td><%= f.text_field :name %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :introduction %></td>
+          <td><%= f.text_area :introduction %></td>
+        </tr>
+      </table>
+          <%= f.submit "変更を保存", class:"btn btn-block btn-info mt-5" %>
+        <% end %>
+        <%= link_to "退会する", confirm_current_customer_path, class: "btn btn-block btn-danger mt-5" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
   </div>
 </div>

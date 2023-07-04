@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get '/about', to: 'homes#about'
 
-    resources :customers, only: [:index, :show, :edit, :update, :unsubscribe, :withdraw]
+    resources :customers, only: [:index, :show, :edit, :update]
+    get 'confirm', to: 'customers#confirm', as: 'confirm_current_customer'
+    patch 'withdraw', to: 'customers#withdraw', as: 'withdraw_current_customer'
 
     resources :customers do
       resource :relationships, only: [:create, :destroy]
