@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Public::SessionsController < Devise::SessionsController
-  # before_action :configure_sign_in_params, only: [:create]
+  before_action :reject_inactive_customer, only: [:create]
 
   # GET /resource/sign_in
   # def new
@@ -35,8 +35,8 @@ class Public::SessionsController < Devise::SessionsController
   def reject_inactive_customer
     @customer = Customer.find_by(email: params[:customer][:email])
     if @customer
-      if @customer.valid_password?(params[:customer][:password]) && !@customer.is_active
-        flash[:danger] = 'お客様は退会済みです。申し訳ございませんが、別のメールアドレスをお使いください。'
+      if (@customer.valid_password?(params[:customer][:password]) && (@customer.is_deleted == true))
+        flash[:danger] = 'お客様は退会済みです。'
         redirect_to new_customer_session_path
       end
     end

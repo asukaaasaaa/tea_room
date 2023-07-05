@@ -1,3 +1,6 @@
+<% if flash[:danger] %>
+    <p class="text-red"><%= flash[:danger] %></p>
+  <% end %>
 <h2>Log in</h2>
 
 <%= form_with model: @customer, url: customer_session_path do |f| %>
