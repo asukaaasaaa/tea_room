@@ -1,2 +1,45 @@
-<h1>Admin::Customers#show</h1>
-<p>Find me in app/views/admin/customers/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div>
+        <h3 class="mt-4"><%= @customer.name %>さんの詳細情報</h3>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <table class="table">
+        <thead></thead>
+          <tbody>
+            <tr>
+              <th>会員ID</th>
+              <td><%= @customer.id %></td>
+            </tr>
+            <tr>
+              <th>名前</th>
+              <td><%= @customer.name %></td>
+            </tr>
+            <tr>
+              <th>メールアドレス</th>
+              <td><%= @customer.email %></td>
+            </tr>
+            <tr>
+              <th>投稿数</th>
+              <td><%= @customer.post_teas.count %></td>
+            </tr>
+            <tr>
+              <th>ステータス</th>
+              <td>
+                <% if @customer.is_deleted == true %>
+                  <div class="font-weight-bold text-secondary">退会</div>
+                <% else %>
+                  <div class="font-weight-bold text-success">有効</div>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="mx-auto">
+          <%= link_to "編集する", edit_admin_customer_path, class: "btn btn-success" %>
+        </div>
+    </div>
+  </div>
+</div>

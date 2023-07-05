@@ -9,6 +9,15 @@
     <%= render 'public/customers/nav', customer: @customer %>
     </div>
 
+    <% if @customer.errors.any? %>
+        <%= @customer.errors.count %>件のエラーが発生しました
+        <ul>
+          <% @customer.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+
       <div class="mx-auto">
         <%= form_with model: @customer, local: true do |f| %>
          <table class="table">
@@ -27,9 +36,3 @@
       </div>
     </div>
   </div>
-</div>
-
-
-
-  </div>
-</div>
