@@ -1,4 +1,5 @@
 class Public::CustomersController < ApplicationController
+
   def show
     @customer = Customer.find(params[:id])
     @post_teas = @customer.post_teas
@@ -6,6 +7,8 @@ class Public::CustomersController < ApplicationController
 
   def likes
     @customer = Customer.find(params[:id])
+    likes = Favorite.where(customer_id: @customer.id).pluck(:post_tea_id)
+    @like_posts  = PostTea.find(likes)
   end
 
   def edit
@@ -33,5 +36,9 @@ class Public::CustomersController < ApplicationController
 
   def customer_params
     params.require(:customer).permit(:name, :introduction)
+  end
+
+  def set_customer
+    @customer = Customer.find(params[:id])
   end
 end

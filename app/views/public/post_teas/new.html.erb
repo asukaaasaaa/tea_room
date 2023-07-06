@@ -19,11 +19,11 @@
         </tr>
         <tr>
           <td><%= f.label :title %></td>
-          <td><%= f.text_field :title %></td>
+          <td><%= f.text_field :title, class: "form-control" %></td>
         </tr>
         <tr>
           <td><%= f.label :body %></td>
-          <td><%= f.text_area :body %></td>
+          <td><%= f.text_area :body, rows:'5', class: "form-control",placeholder: "感想や説明をここに" %></td>
         </tr>
         <tr>
           <td><%= f.label :genre_id %></td>

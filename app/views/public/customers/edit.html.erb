@@ -23,11 +23,11 @@
          <table class="table">
         <tr>
           <td><%= f.label :name %></td>
-          <td><%= f.text_field :name %></td>
+          <td><%= f.text_field :name, class: "form-control" %></td>
         </tr>
         <tr>
           <td><%= f.label :introduction %></td>
-          <td><%= f.text_area :introduction %></td>
+          <td><%= f.text_area :introduction, rows:'5', class: "form-control",placeholder: "自己紹介など" %></td>
         </tr>
       </table>
           <%= f.submit "変更を保存", class:"btn btn-block btn-info mt-5" %>
