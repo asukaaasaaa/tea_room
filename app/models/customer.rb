@@ -21,12 +21,12 @@ class Customer < ApplicationRecord
   validates :introduction, length: {maximum: 50}
 
    # フォローしたときの処理
-  def follow(customer_id)
-    relationships.create(followed_id: customer_id)
+  def follow(customer)
+    relationships.create(followed_id: customer.id)
   end
   # フォローを外すときの処理
-  def unfollow(user_id)
-    relationships.find_by(followed_id: customer_id).destroy
+  def unfollow(customer)
+    relationships.find_by(followed_id: customer.id).destroy
   end
   # フォローしているか判定
   def following?(customer)
