@@ -16,7 +16,7 @@ class Public::PostTeasController < ApplicationController
   end
 
   def index
-    @post_teas = PostTea.all
+    @post_teas = PostTea.page(params[:page]).per(10).order(created_at: :desc)
   end
 
   def show
