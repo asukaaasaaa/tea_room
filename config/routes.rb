@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get '/about', to: 'homes#about'
+    get "search" => "searches#search"
 
     resources :customers, only: [:index, :show, :edit, :update]
     get 'confirm', to: 'customers#confirm', as: 'confirm_current_customer'
