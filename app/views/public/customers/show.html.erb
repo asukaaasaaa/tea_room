@@ -2,13 +2,16 @@
   <div class='row'>
     <p><%= flash[:notice] %></p>
     <div class="col-12">
-      <div>
-        <h3 class="py-4 mb-0"><%= @customer.name %> さんのProfileページ</h3>
-        <p>Introduction : <%= @customer.introduction %></p>
-        <!--<div>Follows : <= @customer.followings.count %></div>-->
-        <!--<div>Followers : <= @customer.followers.count %></div>-->
-        <!--<div><= render "public/relationships/btn", customer: @customer %></div>-->
-      </div>
+      <h3 class="py-4 mb-0"><%= @customer.name %> さんのProfileページ</h3>
+      <p>Introduction : <%= @customer.introduction %></p>
+    </div>
+    <div class="col-8">
+      <div>Follows : <%= @customer.followings.count %></div>
+      <div>Followers : <%= @customer.followers.count %></div>
+    </div>
+    <div class="col-4">
+      <%= render "public/relationships/btn", customer: @customer %>
+    </div>
     </div>
     <div class="col-12">
     <%= render 'public/customers/nav' , customer: @customer %>

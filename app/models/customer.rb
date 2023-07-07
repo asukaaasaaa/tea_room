@@ -12,21 +12,16 @@ class Customer < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
   has_many :followers, through: :reverse_of_relationships, source: :follower
 
-  has_one_attached :profile_image
-  def get_profile_image
-    (profile_image.attached?) ? profile_image : 'no_image.jpg'
-  end
-
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
   validates :introduction, length: {maximum: 50}
 
    # フォローしたときの処理
-  def follow(customer)
-    relationships.create(followed_id: customer.id)
+  def follow(customer_id)
+    relationships.create(followed_id: customer_id)
   end
   # フォローを外すときの処理
-  def unfollow(customer)
-    relationships.find_by(followed_id: customer.id).destroy
+  def unfollow(customer_id)
+    relationships.find_by(followed_id: customer_id).destroy
   end
   # フォローしているか判定
   def following?(customer)
@@ -45,6 +40,15 @@ class Customer < ApplicationRecord
       @customer = Customer.where("name LIKE?","%#{word}%")
     else
       @customer = Customer.all
+    end
+  end
+
+  GUEST_CUSTOMER_EMAIL = "guest@example.com"
+
+  def self.guest
+    find_or_create_by!(email: GUEST_CUSTOMER_EMAIL) do |customer|
+      customer.password = SecureRandom.urlsafe_base64
+      customer.name = "guestuser"
     end
   end
 

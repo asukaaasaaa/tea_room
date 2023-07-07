@@ -32,6 +32,12 @@ class Public::SessionsController < Devise::SessionsController
     root_path
   end
 
+  def guest_sign_in
+    customer = Customer.guest
+    sign_in customer
+    redirect_to customer_path(customer), notice: "guestuserでログインしました。"
+  end
+
   def reject_inactive_customer
     @customer = Customer.find_by(email: params[:customer][:email])
     if @customer
