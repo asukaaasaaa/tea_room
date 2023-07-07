@@ -1,7 +1,6 @@
 <h2>PostTea search for "<%= params[:word] %>" </h2>
 
 <table class="table table-hover table-inverse">
-  <!--検索対象モデルがUserの時 -->
   <% if @range == "Customer" %>
     <thead>
       <tr></tr>
@@ -15,10 +14,23 @@
           <td><%= link_to customer_path(customer) do %><%= customer.name %><% end %></td>
           <td><%= customer.introduction %></td>
         </tr>
+    <% end %>
+    </tbody>
+    <% elsif @range == "Genre" %>
+    <thead>
+      <tr></tr>
+        <td></td>
+        <td>name</td>
+    </thead>
+    <tbody>
+      <% @genres.post_tea.each do |post_tea| %>
+      <tr>
+        <td></td>
+        <td><%= post_tea.title %></td>
+      </tr>
       <% end %>
     </tbody>
-  <% else %>
-  <!--検索対象モデルがUserではない時(= 検索対象モデルがPostTeaの時) -->
+    <% else @range == "PostTea" %>
         <thead>
           <tr></tr>
             <td></td>
@@ -28,8 +40,8 @@
         <tbody>
           <% @post_teas.each do |post_tea| %>
           <tr>
-          <td><%= link_to post_tea_path(post_tea) do %><%= post_tea.title %><% end %></td>
-          <td><%= post_tea.body %></td>
+            <td><%= link_to post_tea_path(post_tea) do %><%= post_tea.title %><% end %></td>
+            <td><%= post_tea.body %></td>
         </tr>
       <% end %>
     </tbody>

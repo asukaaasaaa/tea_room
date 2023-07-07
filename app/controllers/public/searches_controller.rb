@@ -7,6 +7,9 @@ class Public::SearchesController < ApplicationController
      if @range == "Customer"
        @customers = Customer.looks(params[:search], params[:word])
        render "/public/searches/search_result"
+     elsif @range == "Genre" then
+       @genres = Genre.looks(params[:search], params[:word])
+       render "/public/searches/search_result"
      else
        @post_teas = PostTea.looks(params[:search], params[:word])
        render "/public/searches/search_result"
