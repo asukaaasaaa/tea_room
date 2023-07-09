@@ -19,7 +19,7 @@
       <%= form_with model: @genre, url: admin_genres_path do |f| %>
       <%= f.label :name, "ジャンル名" %>
       <%= f.text_field :name, placeholder: "ジャンル名" %>
-      <%= f.submit "新規登録", class: "btn btn-success" %>
+      <%= f.submit "新規登録", class: "btn btn-info" %>
     </div>
   </div>
   <% end %>
@@ -37,7 +37,7 @@
           <% @genres.each do |genre| %>
           <tr>
             <td><%= genre.name %></td>
-            <td><%= link_to "編集する", edit_admin_genre_path(genre), class: "btn btn-success text-nowrap" %></td>
+            <td><%= link_to "編集する", edit_admin_genre_path(genre), class: "btn btn-info text-nowrap" %></td>
           </tr>
           <% end %>
         </tbody>

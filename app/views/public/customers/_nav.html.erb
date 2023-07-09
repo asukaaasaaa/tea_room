@@ -10,11 +10,13 @@
       <i class="fas fa-heart"></i> Favorites
     <% end %>
   </li>
-  <% if customer == current_customer %>
-  <li class="nav-item">
-    <%= link_to edit_customer_path(params[:id]), class: "nav-link" do %>
-      <i class="fas fa-user-edit"></i> Edit
+  <% if customer.email != "guest@example.com" %>
+    <% if customer == current_customer %>
+    <li class="nav-item">
+      <%= link_to edit_customer_path(params[:id]), class: "nav-link" do %>
+        <i class="fas fa-user-edit"></i> Edit
+      <% end %>
+    </li>
     <% end %>
-  </li>
   <% end %>
 </ul>

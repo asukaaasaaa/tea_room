@@ -3,10 +3,8 @@
     <div class="col-lg-3 offset-lg-1">
       <h3 class="text-nowrap">Time Line</h3>
     </div>
+    <%= render "public/searches/search" %>
   </div>
-
-<%= render "public/searches/search" %>
-
 <div class="card-list-container py-5">
   <% @post_teas.each do |post_tea| %>
   <div class="card w-50 mx-auto mt-4 shadow-lg">

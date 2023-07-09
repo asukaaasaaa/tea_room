@@ -31,14 +31,14 @@
                 <% if @customer.is_deleted == true %>
                   <div class="font-weight-bold text-secondary">退会</div>
                 <% else %>
-                  <div class="font-weight-bold text-success">有効</div>
+                  <div class="font-weight-bold text-info">有効</div>
                 <% end %>
               </td>
             </tr>
           </tbody>
         </table>
         <div class="mx-auto">
-          <%= link_to "編集する", edit_admin_customer_path, class: "btn btn-success" %>
+          <%= link_to "編集する", edit_admin_customer_path, class: "btn btn-info" %>
         </div>
     </div>
   </div>
