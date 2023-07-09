@@ -16,7 +16,13 @@ class Public::PostTeasController < ApplicationController
   end
 
   def index
-    @post_teas = PostTea.page(params[:page]).per(10).order(created_at: :desc)
+    if params[:genre_id]
+      @genre = Genre.find(params[:genre_id])
+      @post_teas = @genre.post_teas.page(params[:page]).per(10).order(created_at: :desc)
+    else
+      @post_teas = PostTea.where(customer_id: [current_customer.id, *current_customer.following_ids]).page(params[:page]).per(10).order(created_at: :desc)
+    end
+    @genres = Genre.all
   end
 
   def show

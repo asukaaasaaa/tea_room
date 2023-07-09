@@ -1,37 +1,43 @@
 <div class="container">
-  <div class="row mt-3">
-    <div class="col-lg-3 offset-lg-1">
-      <h3 class="text-nowrap">Time Line</h3>
+  <div class="row m-3">
+    <div class="col-sm-8 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2 class="text-center">Time Line</h2>
+      <%= render "public/searches/search" %>
     </div>
-    <%= render "public/searches/search" %>
   </div>
-<div class="card-list-container py-5">
-  <% @post_teas.each do |post_tea| %>
-  <div class="card w-50 mx-auto mt-4 shadow-lg">
-    <%= link_to post_tea_path(post_tea.id) do %>
-      <%= image_tag post_tea.get_image, class:"card-img-top"; %>
-    <% end %>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-10">
-          <p class="card-title">
-            <%= link_to(post_tea_path(post_tea.id), class:"text-dark") do %>
-              <strong><i class="far fa-flag"></i><span> <%= post_tea.title %></span></strong>
-            <% end %>
-          </p>
-          <p class="card-text">Opinion：<%= post_tea.body %></p>
-          <p class="card-text">Genre：<%= post_tea.genre.name %></p>
-          <%= link_to customer_path(post_tea.customer.id), class:"text-dark" do %>
-            <span><i class="fas fa-user"></i> By <%= post_tea.customer.name %>  </span>
+  <div class="row">
+    <div class="col-sm-4 col-md-3 col-lg-2">
+      <%= render 'public/post_teas/genre_search', genres: @genres %>
+    </div>
+    <div class="col mx-auto">
+      <div class="card-list-container py-5">
+        <% @post_teas.each do |post_tea| %>
+        <div class="card w-50 mx-auto mt-4 shadow-lg">
+          <%= link_to post_tea_path(post_tea.id) do %>
+            <%= image_tag post_tea.get_image, class:"card-img-top"; %>
           <% end %>
-          <span>| <i class="fas fa-comments"></i> <%= post_tea.comments.count %> | </span>
-          <span><i class="fa fa-heart"></i> <%= post_tea.favorites.count %> </span>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-10">
+                <p class="card-title">
+                  <%= link_to(post_tea_path(post_tea.id), class:"text-dark") do %>
+                    <strong><i class="far fa-flag"></i><span> <%= post_tea.title %></span></strong>
+                  <% end %>
+                </p>
+                <p class="card-text">Opinion：<%= post_tea.body %></p>
+                <p class="card-text">Genre：<%= post_tea.genre.name %></p>
+                <%= link_to customer_path(post_tea.customer.id), class:"text-dark" do %>
+                  <span><i class="fas fa-user"></i> By <%= post_tea.customer.name %>  </span>
+                <% end %>
+                <span>| <i class="fas fa-comments"></i> <%= post_tea.comments.count %> | </span>
+                <span><i class="fa fa-heart"></i> <%= post_tea.favorites.count %> </span>
+              </div>
+            </div>
+          </div>
         </div>
+        <% end %>
       </div>
     </div>
+    <%= paginate @post_teas %>
   </div>
-  <% end %>
-</div>
-<%= paginate @post_teas %>
-
 </div>
