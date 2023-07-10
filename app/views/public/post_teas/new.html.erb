@@ -2,14 +2,7 @@
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h2>New Tea</h2>
-      <% if @post_tea.errors.any? %>
-        <%= @post_tea.errors.count %>件のエラーが発生しました
-        <ul>
-          <% @post_tea.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-          <% end %>
-        </ul>
-      <% end %>
+      <%= render 'layouts/error', object: @post_tea %>
 
       <%= form_with model: @post_tea do |f| %>
       <table class="table">
