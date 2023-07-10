@@ -2,11 +2,11 @@
   <nav class="navbar navbar-expand-lg">
     <div class="container">
       <%= link_to root_path , class:"navbar-brand" do %>
-        <h2 class="border border-danger" style="color: #77404f;"> Tea Room </h2>
+        <h2 class="border border-info" style="color: #ed6d2b;"> Tea Room </h2>
       <% end %>
         <div class="collapse navbar-collapse">
           <% if customer_signed_in? %>
-            <p class="text-left mt-3" style="color: #77404f; margin-left: 7%; font-size: 15px;">
+            <p class="text-left mt-3" style="color: #ed6d2b; margin-left: 7%; font-size: 15px;">
 
               ようこそ、
               <% if current_customer %>
@@ -36,7 +36,7 @@
               </li>
             </ul>
           <% elsif admin_signed_in? %>
-            <p class="text-left mt-3" style="color: #77404f; margin-left: 7%; font-size: 15px;">
+            <p class="text-left mt-3" style="color: #ed6d2b; margin-left: 7%; font-size: 15px;">
               ようこそ、管理人さん
             </p>
             <ul class="navbar-nav ml-auto">
