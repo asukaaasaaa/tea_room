@@ -1,0 +1,13 @@
+<% if post_tea.favorited_by?(current_customer) %>
+  <span>
+    <%= link_to(post_tea_favorites_path(post_tea), class:"text-dark", method: :delete, remote: true ) do %>
+      <i class="fa fa-heart" aria-hidden="true"></i> <%= post_tea.favorites.count %>
+    <% end %>
+  </span>
+  <% else %>
+  <span>
+    <%= link_to(post_tea_favorites_path(post_tea), class:"text-dark", method: :post, remote: true ) do %>
+      <i class="far fa-heart"></i> <%= post_tea.favorites.count %>
+    <% end %>
+  </span>
+<% end %>

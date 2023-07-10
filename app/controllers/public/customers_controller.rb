@@ -1,5 +1,6 @@
 class Public::CustomersController < ApplicationController
   before_action :ensure_guest_user, only: [:edit]
+  before_action :is_matching_login_user, only: [:edit, :update]
 
   def show
     @customer = Customer.find(params[:id])
@@ -41,6 +42,13 @@ class Public::CustomersController < ApplicationController
 
   def set_customer
     @customer = Customer.find(params[:id])
+  end
+
+  def is_matching_login_customer
+    customer = Customer.find(params[:id])
+    unless customer.id == current_customer.id
+      redirect_to post_teas_path
+    end
   end
 
   def ensure_guest_user

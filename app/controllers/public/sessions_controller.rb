@@ -35,7 +35,7 @@ class Public::SessionsController < Devise::SessionsController
   def guest_sign_in
     customer = Customer.guest
     sign_in customer
-    redirect_to customer_path(customer), notice: "guestuserでログインしました。"
+    redirect_to post_teas_path, notice: "guestuserでログインしました。"
   end
 
   def reject_inactive_customer

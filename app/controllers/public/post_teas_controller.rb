@@ -1,4 +1,6 @@
 class Public::PostTeasController < ApplicationController
+  before_action :authenticate_customer!
+  before_action :ensure_correct_customer, only: [:edit, :update, :destroy]
   def new
     @post_tea = PostTea.new
   end
@@ -8,7 +10,7 @@ class Public::PostTeasController < ApplicationController
     @post_tea = PostTea.new(post_tea_params)
     @post_tea.customer_id = current_customer.id
     if @post_tea.save
-      flash[:notice] = "You have created tea successfully."
+      flash[:notice] = "投稿に成功しました。"
       redirect_to post_tea_path(@post_tea.id)
     else
        render :new
@@ -43,7 +45,7 @@ class Public::PostTeasController < ApplicationController
   def update
     @post_tea = PostTea.find(params[:id])
     if @post_tea.update(post_tea_params)
-      redirect_to post_tea_path(@post_tea), notice: "You have updated tea successfully."
+      redirect_to post_tea_path(@post_tea), notice: "投稿の編集に成功しました。"
     else
       render :edit
     end
@@ -53,5 +55,12 @@ class Public::PostTeasController < ApplicationController
 
   def post_tea_params
     params.require(:post_tea).permit(:title, :body, :genre_id, :image)
+  end
+
+  def ensure_correct_customer
+    @post_tea = PostTea.find(params[:id])
+    unless @post_tea.customer == current_customer
+      redirect_to post_teas_path
+    end
   end
 end
