@@ -1,2 +1,75 @@
-<h1>Admin::Homes#top</h1>
-<p>Find me in app/views/admin/homes/top.html.erb</p>
+<div class="container">
+  <div class="row p-5">
+    <div class='mx-auto col-11 col-sm-10 col-lg-8 col-xl-6 text-center'>
+      <h2 style="color: #77404f;">Infomation</h2>
+
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">会員情報</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"></th>
+            <td>会員数</td>
+            <td><%= @customers.count %> 人</td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">投稿情報</th>
+            <th scope="col">期間</th>
+            <th scope="col">件数</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"></th>
+            <td>全期間</td>
+            <td><%= @post_teas.count %> 件</td>
+          </tr>
+
+          <tr>
+            <th scope="row"></th>
+            <td>本日</td>
+            <td><%= @today_post_tea.count %> 件</td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>昨日</td>
+            <td><%= @yesterday_post_tea.count %> 件</td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>今週</td>
+            <td><%= @this_week_post_tea.count %> 件</td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>先週</td>
+            <td><%= @last_week_post_tea.count %> 件</td>
+          </tr>
+           <tr>
+            <th scope="row"></th>
+            <td>全コメント数</td>
+            <td><%= @comments.count %> 件</td>
+          </tr>
+        </tbody>
+      </table>
+
+      </div>
+    </div>
+  </div>
+</div>
