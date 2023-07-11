@@ -58,4 +58,5 @@
    - https://docs.google.com/spreadsheets/d/1EcjlruEp_ZlwFMFoQHNnHh0YBSHuk0pm2MgQQnE3bpk/edit?usp=sharing
 
 ## 使用素材(未定)
-* お茶のフリー画像素材使用予定
+* 投稿サンプル画像
+　 - https://www.pakutaso.com/
