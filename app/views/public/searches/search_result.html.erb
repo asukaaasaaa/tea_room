@@ -17,20 +17,6 @@
         </tr>
     <% end %>
     </tbody>
-    <% elsif @range == "Genre" %>
-    <thead>
-      <tr></tr>
-        <td></td>
-        <td>name</td>
-    </thead>
-    <tbody>
-      <% @genres.post_tea.each do |post_tea| %>
-      <tr>
-        <td></td>
-        <td><%= post_tea.title %></td>
-      </tr>
-      <% end %>
-    </tbody>
     <% else @range == "PostTea" %>
         <thead>
           <tr></tr>
