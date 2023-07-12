@@ -21,10 +21,10 @@
               <div class="col-10">
                 <p class="card-title">
                   <%= link_to(post_tea_path(post_tea.id), class:"text-dark") do %>
-                    <strong><i class="far fa-flag"></i><span> <%= post_tea.title %></span></strong>
+                    <strong><i class="fas fa-coffee"></i><span> <%= post_tea.title %></span></strong>
                   <% end %>
                 </p>
-                <p class="card-text">Opinion：<%= post_tea.body %></p>
+                <p class="card-text"><%= post_tea.body %></p>
                 <p class="card-text">Genre：<%= post_tea.genre.name %></p>
                 <%= link_to customer_path(post_tea.customer.id), class:"text-dark" do %>
                   <span><i class="fas fa-user"></i> By <%= post_tea.customer.name %>  </span>
@@ -37,7 +37,8 @@
         </div>
         <% end %>
       </div>
+        <%= paginate @post_teas %>
+      </div>
     </div>
-    <%= paginate @post_teas %>
   </div>
 </div>

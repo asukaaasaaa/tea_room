@@ -18,7 +18,7 @@
     <div class="col-12 mb-2"><h4>Post</h4></div>
 
     <% @post_teas.each do |post_tea| %>
-      <div class="col-md-3 m-2">
+      <div class="col-md-3">
         <div class="card-deck">
           <div class="card border-info" style="width: 15rem;">
             <%= link_to post_tea_path(post_tea.id) do %>
@@ -32,5 +32,5 @@
         </div>
       </div>
     <% end %>
-</div>
+  </div>
 </div>

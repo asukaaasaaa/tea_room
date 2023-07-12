@@ -68,7 +68,7 @@ PostTea.create!(
       genre_id: 1,
       title: 'はるもえぎ',
       body:
-        %Q{熱湯でいれても渋みが出ないし、後味もさっぱりしているので緑茶は飲み慣れない方やごくごく飲みたい日方にもおすすめです！},
+        %Q{熱湯でいれても渋みが出ないし、後味もさっぱりしているので緑茶は飲み慣れない方やごくごく飲みたい方にもおすすめです！},
       image: ActiveStorage::Blob.create_and_upload!(io: File.open("db/fixtures/post2.jpg"),filename: "post2.jpg")
     },
     {
@@ -84,7 +84,7 @@ PostTea.create!(
       genre_id: 1,
       title: '藤枝 やぶきた',
       body:
-        %Q{2ふくよかですっきりとした飲み口です！\n湯冷まししたお湯でじっくりといれることにより、甘み・旨みが浸出されやすいのでおすすめです。},
+        %Q{ふくよかですっきりとした飲み口です！\n湯冷まししたお湯でじっくりといれることにより、甘み・旨みが浸出されやすいのでおすすめです。},
       image: ActiveStorage::Blob.create_and_upload!(io: File.open("db/fixtures/post4.jpg"),filename: "post4.jpg")
     },
     {
@@ -124,7 +124,7 @@ PostTea.create!(
       genre_id: 2,
       title: 'ダージリン・ザ セカンドフラッシュ',
       body:
-        %Q{紅茶のシャンパン」と称される、ダージリン夏摘みのみのブレンド。\nフルーティーで飲みやすかったです。},
+        %Q{紅茶のシャンパンと称される、ダージリン夏摘みのみのブレンド。\nフルーティーで飲みやすかったです。},
       image: ActiveStorage::Blob.create_and_upload!(io: File.open("db/fixtures/post9.jpg"),filename: "post9.jpg")
     },
     {

@@ -21,6 +21,8 @@ class Public::PostTeasController < ApplicationController
     if params[:genre_id]
       @genre = Genre.find(params[:genre_id])
       @post_teas = @genre.post_teas.page(params[:page]).per(10).order(created_at: :desc)
+    elsif current_customer.email == "guest@example.com"
+      @post_teas = PostTea.all.page(params[:page]).per(10).order(created_at: :desc)
     else
       @post_teas = PostTea.where(customer_id: [current_customer.id, *current_customer.following_ids]).page(params[:page]).per(10).order(created_at: :desc)
     end
