@@ -8,9 +8,9 @@
           <li><%= message %></li>
           <% end %>
         </ul>
-        <% end %>
+      <% end %>
       <h2>Editing post</h2>
-          <%= form_with model:@post_tea do |f| %>
+        <%= form_with model:@post_tea do |f| %>
           <table class="table">
             <tr>
               <div class="form-group">
@@ -36,12 +36,11 @@
               <%= f.submit class: 'btn btn-info' %>
             </div>
           </div>
-          <% end %>
-
-          <hr>
-          <%= link_to "Back",post_tea_path(@post_tea.id), class: 'text-dark' %>
-           |
-          <%= link_to "Time Line",post_teas_path, class: 'text-dark' %>
+        <% end %>
+        <hr>
+        <%= link_to "Back",post_tea_path(@post_tea.id), class: 'text-dark' %>
+         |
+        <%= link_to "Time Line",post_teas_path, class: 'text-dark' %>
      </div>
   </div>
 </div>
