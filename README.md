@@ -1,6 +1,5 @@
 # Tea room
 
-
 ## サイト概要
 世界中様々な”お茶”を検索したり感想を投稿したりするSNSサイト
 
@@ -57,6 +56,6 @@
 * アプリケーション詳細設計書
    - https://docs.google.com/spreadsheets/d/1EcjlruEp_ZlwFMFoQHNnHh0YBSHuk0pm2MgQQnE3bpk/edit?usp=sharing
 
-## 使用素材(未定)
+## 使用素材
 * 投稿サンプル画像
 　 - https://www.pakutaso.com/
